@@ -3,36 +3,35 @@ let y = Number(prompt("Введите Y= ")); // number - Конвертируе
 
 if (!isNaN(x) && !isNaN(y)) { //  ЕСЛИ (НЕ ЧИСЛО (Х) И НЕ ЧИСЛО (Y))
     let o = prompt("Введите операцию");
-    switch (o) { // Переключатель по переменной о
-        case "+": // Ячейка
-            alert(`${x}+${y}= ${x+y}`);
-            break;
+    let c = "";
 
-        case "-":
-            alert(`${x}-${y}= ${x-y}`);
-            break;
+    //КАЛЬКУЛЯТОР
+    if (o == "+") {
+        c = x + y;
+        alert(`${x}+${y}=${c}`);
+    } else if (o == "-") {
+        c = x - y;
+        alert(`${x}-${y}= ${c}`);
+    } else if (o == "*") {
+        c = x * y;
+        alert(`${x}*${y}= ${c}`);
+    } else if (o == "/") {
+        c = x / y;
+        if (c == Infinity) {
+            alert("Нельзя делить на 0")
+        } else {
+            alert(`${x}/${y}= ${c}`);
+        }
 
-        case "*":
-            alert(`${x}*${y}= ${x*y}`);
-            break;
-
-        case "/":
-            let num0 = (x / y);
-            break;
-        case "**":
-            alert(`${x}**${y}= ${x**y}`);
-            break;
-        case "%":
-            alert(`${x}%${y}= ${x%y}`);
-            break;
-        default:
-            alert("Это не операция");
-            if (!isNaN(num0)) {
-                alert("нельзя делить на 0")
-            } else {
-                alert(`${x}/${y}= ${x/y}`);
-            }
+    } else if (o == "**") {
+        c = x ** y;
+        alert(`${x}**${y}= ${c}`);
+    } else if (o == "%") {
+        c = x % y;
+        alert(`${x}%${y}= ${c}`);
+    } else {
+        alert("Введите корректный оператор");
     }
-
-
+} else {
+    alert("X, Y Должны быть числами");
 }
